@@ -13,6 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: staging
 
     strategy:
       matrix:
@@ -26,5 +27,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: echo "${APP_KEY}"
-    - run: echo "${SECRET_KEY}"
+    - run: echo "${{secrets.TESTSECRET}}"
+    - run: echo "${{secrets.TESTSECRET2}}"
